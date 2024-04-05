@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main2" translatesAutoresizingMaskIntoConstraints="NO" id="pwq-LY-DEa">
+                                <rect key="frame" x="30" y="358" width="333" height="363"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="363" id="7h2-LR-Vt2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmJ-BD-2k2">
+                                <rect key="frame" x="60" y="118" width="106" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="9U2-aA-5Oy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                                <color key="textColor" name="Naranja"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deberes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHb-s4-OIt">
+                                <rect key="frame" x="60" y="198" width="250" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="fy8-Xb-byh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                                <color key="textColor" name="Naranja"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoU-xx-gsK">
+                                <rect key="frame" x="60" y="278" width="123" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="FTM-oR-ujo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                                <color key="textColor" name="Naranja"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UoU-xx-gsK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="1Lw-jc-K0w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UoU-xx-gsK" secondAttribute="trailing" constant="210" id="G20-go-S4t"/>
+                            <constraint firstItem="pwq-LY-DEa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="J3n-Zf-x7f"/>
+                            <constraint firstItem="qmJ-BD-2k2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Ts1-ZZ-qE5"/>
+                            <constraint firstItem="pwq-LY-DEa" firstAttribute="top" secondItem="UoU-xx-gsK" secondAttribute="bottom" constant="8" symbolic="YES" id="W8U-RC-uHv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qmJ-BD-2k2" secondAttribute="trailing" constant="227" id="WUZ-WR-vSv"/>
+                            <constraint firstItem="qmJ-BD-2k2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="YV6-p5-bzz"/>
+                            <constraint firstItem="uHb-s4-OIt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Z9J-Fn-w0S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uHb-s4-OIt" secondAttribute="trailing" constant="83" id="eaN-jW-Gm7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pwq-LY-DEa" secondAttribute="trailing" constant="30" id="pyq-d5-XnC"/>
+                            <constraint firstItem="UoU-xx-gsK" firstAttribute="top" secondItem="uHb-s4-OIt" secondAttribute="bottom" constant="8" symbolic="YES" id="xNK-fg-mR0"/>
+                            <constraint firstItem="uHb-s4-OIt" firstAttribute="top" secondItem="qmJ-BD-2k2" secondAttribute="bottom" constant="8" symbolic="YES" id="ykZ-Zz-Db2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="main2" width="500" height="500"/>
+        <namedColor name="Naranja">
+            <color red="0.96470588235294119" green="0.68235294117647061" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
