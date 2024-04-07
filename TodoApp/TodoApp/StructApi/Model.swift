@@ -22,11 +22,6 @@ struct CreateTaskRequest: Codable {
     let title: String
     let description: String
 }
-enum TaskStatus: String, Codable {
-    case todo
-    case inProgress
-    case complete
-}
 
 struct UpdateTaskRequest: Codable {
     let title: String
@@ -34,6 +29,16 @@ struct UpdateTaskRequest: Codable {
     let status: TaskStatus
 }
 
-struct TaskResponse: Codable {
- 
+struct TaskResponse: Codable, Hashable {
+    let description: String
+    let id: String
+    let state: TaskStatus
+    let title: String
+    let userId: String
+}
+
+enum TaskStatus: String, Codable {
+    case todo
+    case inProgress
+    case complete
 }
