@@ -6,9 +6,7 @@
 //
 import UIKit
 class APIClient {
-
     var token: String = ""
-    
     // MARK: REGISTRO
     func signup(signupRequest: SignupRequest, completion: @escaping (Bool) -> Void) {
         let url = URL(string: "https://todo-app-bmna.onrender.com/api/auth/signup")!
@@ -62,7 +60,6 @@ class APIClient {
         }.resume()
     }
     // MARK: Funciones del API
-    
     // Función para crear una nueva tarea
     func createTask(createTaskRequest: CreateTaskRequest, completion: @escaping (Result<TaskResponse, Error>) -> Void) {
         let url = URL(string: "https://todo-app-bmna.onrender.com/api/task")!
@@ -106,7 +103,6 @@ class APIClient {
             }
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 // Autenticación exitosa, parsea el token
-                
                 if let tasks = try? JSONDecoder().decode([TaskResponse].self, from: data) {
                     completion(.success(tasks))
                 } else {
@@ -120,23 +116,75 @@ class APIClient {
             }
         }.resume()
     }
-    
-    // Función para actualizar una tarea existente
-    func getTask(id: String, completion: @escaping (Result<TaskResponse, Error>) -> Void) {
-    
+    // Función para actualizar una tarea existente con el nuevo estado
+    func updateTask(id: String, newStatus: TaskStatus, request: UpdateTaskRequest, completion: @escaping (Result<TaskResponse, Error>) -> Void) {
+        let url = URL(string: "https://todo-app-bmna.onrender.com/api/task/\(id)")!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "PUT"
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Actualizar el estado en la solicitud
+        let updatedRequest = UpdateTaskRequest(title: request.title,
+                                               description: request.description,
+                                               status: newStatus)
+        do {
+            // Convertir el objeto UpdateTaskRequest a datos JSON
+            let requestBody = try JSONEncoder().encode(updatedRequest)
+            urlRequest.httpBody = requestBody
+            
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                guard let httpResponse = response as? HTTPURLResponse, error == nil else {
+                    print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                    completion(.failure(error!))
+                    return
+                }
+                if httpResponse.statusCode == 200 {
+                    // Tarea actualizada exitosamente, parsea la respuesta
+                    if let responseData = data {
+                        do {
+                            let updatedTask = try JSONDecoder().decode(TaskResponse.self, from: responseData)
+                            completion(.success(updatedTask))
+                        } catch {
+                            print("Error decoding response data: \(error.localizedDescription)")
+                            completion(.failure(error))
+                        }
+                    } else {
+                        completion(.failure(NSError(domain: "APIClient", code: -1, userInfo: [NSLocalizedDescriptionKey: "Empty response data"])))
+                    }
+                } else {
+                    // Error al actualizar la tarea
+                    print("Error updating task. Status code: \(httpResponse.statusCode)")
+                    completion(.failure(NSError(domain: "APIClient", code: httpResponse.statusCode, userInfo: nil)))
+                }
+            }.resume()
+        } catch {
+            print("Error encoding request body: \(error.localizedDescription)")
+            completion(.failure(error))
+        }
     }
 
-       
-    // Función para actualizar una tarea existente
-    func updateTask(id: String, request: UpdateTaskRequest, completion: @escaping (Result<TaskResponse, Error>) -> Void) {
-    
-    }
-       
     // Función para eliminar una tarea
     func deleteTask(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
-      
+        let url = URL(string: "https://todo-app-bmna.onrender.com/api/task/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                completion(.failure(error!))
+                return
+            }
+            if httpResponse.statusCode == 204 {
+                // Tarea eliminada exitosamente
+                completion(.success(()))
+            } else {
+                // Error al eliminar la tarea
+                print("Error deleting task. Status code: \(httpResponse.statusCode)")
+                completion(.failure(NSError(domain: "APIClient", code: httpResponse.statusCode, userInfo: nil)))
+            }
+        }.resume()
     }
-    
     func setToken(token: String) {
         self.token = token;
     }
