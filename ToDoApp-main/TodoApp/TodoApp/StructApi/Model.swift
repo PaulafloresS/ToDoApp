@@ -12,6 +12,10 @@ struct AuthRequest: Codable {
     let password: String
 }
 
+struct AuthResponse: Codable {
+    let token: String
+}
+
 struct SignupRequest: Codable {
     let name: String
     let username: String

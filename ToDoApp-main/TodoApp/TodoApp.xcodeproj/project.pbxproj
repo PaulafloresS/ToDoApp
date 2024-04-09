@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C4B2A792BC0BFB900134141 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4B2A782BC0BFB900134141 /* AuthViewController.swift */; };
 		7C4B2A7B2BC0C2FA00134141 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4B2A7A2BC0C2FA00134141 /* SignUpViewController.swift */; };
+		7C657CC12BC4AC990057C029 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C657CC02BC4AC990057C029 /* HTTPClient.swift */; };
 		7CAE40B82BC0D3EC005EF81B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE40B72BC0D3EC005EF81B /* TasksViewController.swift */; };
 		7CAE40BA2BC0E9E5005EF81B /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE40B92BC0E9E5005EF81B /* NewTaskViewController.swift */; };
 		E717872D2BBF6218009B8DFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E717872C2BBF6218009B8DFE /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		7C4B2A782BC0BFB900134141 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7C4B2A7A2BC0C2FA00134141 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7C657CC02BC4AC990057C029 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		7CAE40B72BC0D3EC005EF81B /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		7CAE40B92BC0E9E5005EF81B /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		E71787292BBF6218009B8DFE /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				E7F296B02BC08B8C00B1244D /* APIClient.swift */,
+				7C657CC02BC4AC990057C029 /* HTTPClient.swift */,
 			);
 			path = TaskAppi;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				E71787422BBF9F69009B8DFE /* CollectionViewCell.swift in Sources */,
 				7C4B2A792BC0BFB900134141 /* AuthViewController.swift in Sources */,
 				E7F296AF2BC0815C00B1244D /* Model.swift in Sources */,
+				7C657CC12BC4AC990057C029 /* HTTPClient.swift in Sources */,
 				7CAE40BA2BC0E9E5005EF81B /* NewTaskViewController.swift in Sources */,
 				7C4B2A7B2BC0C2FA00134141 /* SignUpViewController.swift in Sources */,
 				E717872F2BBF6218009B8DFE /* SceneDelegate.swift in Sources */,
